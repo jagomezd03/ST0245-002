@@ -4,7 +4,7 @@ class LZ77:
         window_size=longitud
         self.window_size=int(window_size)
         self.buffer_size=15
-        
+
     def longest_match(self, data, cursor):
         end_buffer=min(cursor+self.buffer_size,len(data)-1) 
         p=-1  
@@ -24,7 +24,7 @@ class LZ77:
         if p==-1 and l==-1: 
             return 0,0,data[cursor+1]  
         return p,l,c 
-    
+
     def compress(self,message):
         i=-1 
         out=[]
@@ -33,12 +33,12 @@ class LZ77:
             out.append((p, l, c)) 
             i+=(l+1) 
         return out 
-"""
+
     def decompress(self, compressed):
-        cursor=-1 
+        coursor=-1 
         out=[] 
         for (p,l,c) in compressed: 
-            origin=cursor-p+1 
+            origin=coursor-p+1 
             if p == 0 and l == 0: 
                 out.append(c)  
             elif p>=l: 
@@ -50,6 +50,6 @@ class LZ77:
                 out.extend(out[origin:origin+l]*int(repetition)) 
                 out.extend(out[origin:last]) 
                 out.append(c) 
-            cursor+=(l+1) 
+            coursor+=(l+1) 
         return out
-"""
+#Based on: shangmayuan.com/a/7a08ace10bd845248b8980b4.html
