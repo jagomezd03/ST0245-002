@@ -35,10 +35,10 @@ class LZ77:
         return out 
 
     def decompress(self, compressed):
-        coursor=-1 
+        cursor=-1 
         out=[] 
         for (p,l,c) in compressed: 
-            origin=coursor-p+1 
+            origin=cursor-p+1 
             if p == 0 and l == 0: 
                 out.append(c)  
             elif p>=l: 
@@ -50,6 +50,6 @@ class LZ77:
                 out.extend(out[origin:origin+l]*int(repetition)) 
                 out.extend(out[origin:last]) 
                 out.append(c) 
-            coursor+=(l+1) 
+            cursor+=(l+1) 
         return out
 #Based on: shangmayuan.com/a/7a08ace10bd845248b8980b4.html
