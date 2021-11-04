@@ -20,8 +20,6 @@ def compressNeighbor(file,size):
         if chosenRow>=rows:
             break
     return exit 
-
-"""
 def uncompressNeighbor(file,size):
     aux=np.copy(file) #Making a copy of the original file
     rows,columns=aux.shape #Returning the amount of rows and columns
@@ -45,4 +43,3 @@ def uncompressNeighbor(file,size):
         if i+1>=rowExit:
             break
     return exit
-"""
